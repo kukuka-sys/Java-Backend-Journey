@@ -1,1 +1,38 @@
+/*反转链表
 
+如果没有定义链表要先定义链表
+public class ListNode{
+  int val;
+  ListNode next;
+}
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev=null;
+        ListNode cur=head;
+        while(cur!=null){
+            ListNode next=cur.next;
+            cur.next=prev;
+            prev=cur;
+            cur=next;
+
+        }
+
+        return prev;
+    }
+}
+
+
+prev:指向反转好的那部分的头节点
+cur:当前节点
+总体思路:先用保留当前节点的下个节点，将下个节点指向反转好那部分的头节点，更新反转好的头节点，更新当前节点。
